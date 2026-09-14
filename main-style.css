@@ -11,7 +11,7 @@ body {
 main {
    width: 50%;
    height: 500px;
-   background-color: white;
+   background-color: #C9D9C5;   /* still green */
    float: left;
 }
 
