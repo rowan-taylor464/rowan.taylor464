@@ -14,6 +14,211 @@ Lab 3 - Responsive Design
 body {
     width: 100%;
     max-width: 1100px;
+    background-color: #E4FBFF;   /* pale cyan */
+    color: #000000;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3 {
+    color: #19535F;   /* dark teal */
+}
+
+/* ---------- Navigation / SlickNav ---------- */
+nav {
+    background-color: #19535F;
+    width: 100%;
+}
+
+nav ul#menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+nav ul#menu li {
+    padding-left: 0; /* override the global li padding for the nav only */
+}
+
+nav ul#menu li a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-weight: bold;
+}
+
+nav ul#menu li a:hover {
+    background-color: #0B7A75;
+}
+
+/* Re-color the generated SlickNav mobile menu to match the site theme */
+.slicknav_menu {
+    background-color: #19535F;
+    padding: 0;
+}
+
+.slicknav_btn {
+    background-color: #0B7A75;
+    margin: 8px;
+}
+
+.slicknav_nav a:hover {
+    background-color: #0B7A75;
+}
+
+/* ---------- Two column layout (fluid, percentage based) ---------- */
+main {
+    width: calc(50% - 10px);
+    min-height: 300px;   /* was a fixed height:500px, which left empty
+                            gaps or clipped content as the layout resized */
+    border-radius: 8px;
+    float: left;
+    margin: 10px 5px 10px 10px;
+    padding: 10px;
+}
+
+h1, h2 {
+    padding: 10px;
+}
+
+p {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+footer {
+    clear: both;
+    padding: 10px;
+    text-align: center;
+}
+ul {
+    padding-left: 10px;
+}
+li {
+    padding-left: 10px;  /* space between the bullet and text */
+}
+
+img {
+    position: static;
+    max-width: 100%;   /* images scale down fluidly instead of overflowing */
+    height: auto;
+}
+
+
+/* ---------- Contact form  ---------- */
+form {
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    max-width: 250px;
+    padding: 6px;
+    border: 1px solid #0B7A75;
+    border-radius: 4px;
+    background-color: #E4FBFF;
+    color: #000000;
+    font-family: inherit;
+}
+
+form button {
+    background-color: #0B7A75;
+    border: none;
+    color: #E4FBFF;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #19535F;
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+/* Fluid/flexible layout -- no CSS grid */
+
+/* 1. Tablets / small laptops */
+@media (max-width: 1024px) {
+    body {
+        max-width: 95%;
+    }
+
+    h1, h2 {
+        padding: 8px;
+    }
+}
+
+/* 2. Large phones / small tablets */
+@media (max-width: 768px) {
+    main, aside {
+        width: calc(100% - 20px);
+        float: none;
+        min-height: 0;
+        margin: 10px;
+    }
+
+    nav ul#menu li a {
+        padding: 12px 14px;
+    }
+}
+
+/* 3. Phones */
+@media (max-width: 480px) {
+    body {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.4em;
+        padding: 8px 5px;
+    }
+
+    h2 {
+        font-size: 1.1em;
+        padding: 5px;
+    }
+
+    main, aside {
+        padding: 8px;
+    }
+}
+
+/* 4. Small phones */
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    p, li {
+        font-size: 0.9em;
+    }
+
+    main, aside {
+        padding: 5px;
+    }
+}
+/* Rowan Taylor  CSS page
+Southern Illinois University  Developed: 9-13-2026  Tested: 9-13-2026
+Updated: added responsive/fluid layout + SlickNav mobile menu styling
+Lab 3 - Responsive Design
+*/
+
+/* ---------- Base / fluid container ---------- */
+/* Fluid instead of a fixed pixel width so the page never leaves
+   "unfilled" whitespace as the viewport shrinks or grows. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 1100px;
     background-color: #C9D9C5;   /* light green */
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
