@@ -8,14 +8,29 @@
         Assignment: Lab 2 - Two Column Web Page (interests.html)
         Date Developed: 9/13/2026
         Date Tested: 9/13/2026
+        Lab 3 Update: Added responsive/fluid layout and SlickNav mobile menu - 9/26/2026
     -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interests page for Rowan Taylor's personal portfolio.">
     <meta name="keywords" content="Rowan Taylor, personal portfolio, interests, hobbies">
     <link rel="stylesheet" href="interests-style.css">
+    <!-- SlickNav mobile responsive menu CSS (https://computerwolf.github.io/SlickNav/) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
     <title>Rowan Taylor - Interests</title>
 </head>
 <body>
+
+    <!-- Site navigation menu: SlickNav collapses this into a mobile-friendly menu -->
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="occupational.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
     <!-- Main heading / name -->
     <h1>Rowan Taylor</h1>
@@ -99,6 +114,149 @@
     <h3>Contact</h3>
     <p>Contact Name: Rowan Taylor</p>
     <p>SIU Address: Bowyer Hall, 1355 Point Drive, Carbondale, IL 62901</p>
+
+    <!-- jQuery is required by SlickNav -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- SlickNav mobile responsive menu plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+    <script>
+        $(function () {
+            $('#menu').slicknav({
+                label: 'Menu'
+            });
+        });
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Name: Rowan Taylor
+        University: Southern Illinois University
+        Course: ITEC 236 - Web Apps
+        Assignment: Lab 2 - Two Column Web Page (interests.html)
+        Date Developed: 9/13/2026
+        Date Tested: 9/13/2026
+        Lab 3 Update: Added responsive/fluid layout and SlickNav mobile menu - 9/26/2026
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interests page for Rowan Taylor's personal portfolio.">
+    <meta name="keywords" content="Rowan Taylor, personal portfolio, interests, hobbies">
+    <link rel="stylesheet" href="interests-style.css">
+    <!-- SlickNav mobile responsive menu CSS (https://computerwolf.github.io/SlickNav/) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
+    <title>Rowan Taylor - Interests</title>
+</head>
+<body>
+
+    <!-- Site navigation menu: SlickNav collapses this into a mobile-friendly menu -->
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="occupational.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main heading / name -->
+    <h1>Rowan Taylor</h1>
+
+    <!-- Subheading description -->
+    <h2>My Interests</h2>
+
+    <!-- Inline element for intro -->
+    <p>Outside of coursework, I enjoy a range of creative hobbies. </p>
+
+    <!-- Horizontal rule -->
+    <hr>
+
+    <!-- Two column container: left column holds Digital/Visual Arts + Glass/Ceramic Arts, right column holds Fiber Crafts + Woodworking/Outdoor -->
+    <div class="columns">
+
+        <!-- LEFT COLUMN -->
+        <div class="column">
+
+            <!-- Section 1: Digital & Visual Arts -->
+            <section>
+                <h3>Digital &amp; Visual Arts</h3>
+                <p>Computer work.</p>
+                <ul>
+                    <li>Digital Art</li>
+                    <li>Graphic Design</li>
+                    <li>Web Design</li>
+                    <li>Programming</li>
+                </ul>
+            </section>
+
+            <!-- Section 2: Glass & Ceramic Arts -->
+            <section>
+                <h3>Glass &amp; Ceramic Arts</h3>
+                <p>Shaping and firing materials.</p>
+                <ul>
+                    <li>Painting</li>
+                    <li>Ceramics</li>
+                    <li>Stained Glass</li>
+                    <li>Glassblowing</li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="column">
+
+            <!-- Section 1: Fiber Crafts -->
+            <section>
+                <h3>Fiber Crafts</h3>
+                <p>Using thread, yarn, and fabric to create something by hand.</p>
+                <ul>
+                    <li>Sewing</li>
+                    <li>Knitting</li>
+                    <li>Crochet</li>
+                    <li>Fabric weaving</li>
+                </ul>
+            </section>
+
+            <!-- Section 2: Woodworking & Outdoor -->
+            <section>
+                <h3>Woodworking &amp; Outdoor</h3>
+                <p>Garage hobbies.</p>
+                <ul>
+                    <li>Soap Carving</li>
+                    <li>Whittling</li>
+                    <li>Carpentry</li>
+                    <li>Gardening</li>
+                </ul>
+            </section>
+
+        </div>
+
+    </div>
+
+    <!-- Inline element + name of course -->
+    <p>This page was created as part of <em>ITEC 236 - Web Apps</em>, Lab Exercise 2: Two Column Web Page.</p>
+
+    <!-- Contact section -->
+    <h3>Contact</h3>
+    <p>Contact Name: Rowan Taylor</p>
+    <p>SIU Address: Bowyer Hall, 1355 Point Drive, Carbondale, IL 62901</p>
+
+    <!-- jQuery is required by SlickNav -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- SlickNav mobile responsive menu plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+    <script>
+        $(function () {
+            $('#menu').slicknav({
+                label: 'Menu'
+            });
+        });
+    </script>
 
 </body>
 </html>

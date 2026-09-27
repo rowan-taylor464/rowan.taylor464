@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Name: Rowan Taylor
+        University: Southern Illinois University
+        Course: ITEC 236 - Web Apps
+        Assignment: Lab 3 - Responsive Design (Education Page)
+        Date Developed: 9/26/2026
+        Date Tested: 9/26/2026
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Education page for Rowan Taylor's personal portfolio.">
+    <meta name="keywords" content="Rowan Taylor, personal portfolio, education, Southern Illinois University">
+    <link rel="stylesheet" href="main-style.css">
+    <!-- SlickNav mobile responsive menu CSS (https://computerwolf.github.io/SlickNav/) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
+    <title>Rowan Taylor - Education</title>
+</head>
+<body>
+
+    <!-- Site navigation menu: SlickNav collapses this into a mobile-friendly menu -->
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="occupational.html">Experience</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main heading / name -->
+    <h1>Rowan Taylor</h1>
+
+    <!-- Subheading description -->
+    <h2>Education</h2>
+
+    <!-- Inline element for intro -->
+    <p>Academic background.</p>
+
+    <!-- Horizontal rule -->
+    <hr>
+
+    <!-- Main column: degree and coursework -->
+    <main>
+        <h3>Southern Illinois University Carbondale</h3>
+        <p><strong>B.S. in Information Technology, minor in Cybersecurity</strong><br>
+        Expected Graduation: May 2028</p>
+
+        <p>Relevant Coursework:</p>
+        <ul>
+            <li>ITEC 236 - Web Apps</li>
+            <li>ITEC 210 - Introduction to Networking</li>
+            <li>ITEC 314 - Systems Security</li>
+            <li>CS 220 - Programming Structures</li>
+        </ul>
+    </main>
+
+    <!-- Side column: honors and achievements -->
+    <aside>
+        <h3>Achievements</h3>
+        <ul>
+            <li>Dean's List, Fall 2024-Present</li>
+            <li>SIU University Excellence Scholarship Recipient</li>
+            <li>Member, SIU Security Dawgs</li>
+        </ul>
+    </aside>
+
+    <!-- Inline element -->
+    <p>This page was created as part of <em>ITEC 236 - Web Apps</em>, Lab Exercise 3: Responsive Design.</p>
+
+    <!-- Contact section -->
+    <h3>Contact</h3>
+    <p>Contact Name: Rowan Taylor</p>
+    <p>SIU Address: Bowyer Hall, 1355 Point Drive, Carbondale, IL 62901</p>
+
+    <!-- jQuery is required by SlickNav -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- SlickNav mobile responsive menu plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
+    <script>
+        $(function () {
+            $('#menu').slicknav({
+                label: 'Menu'
+            });
+        });
+    </script>
+
+</body>
+</html>
