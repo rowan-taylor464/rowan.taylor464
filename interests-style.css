@@ -12,16 +12,17 @@ body {
     margin: 0 auto;
     padding: 0 20px 40px 20px;
     line-height: 1.5;
-    color: #222;
+    background-color: #E4FBFF;   /* pale cyan, from palette */
+    color: #000000;
 }
 
 h1, h2, h3 {
-    color: #2c3e50;
+    color: #19535F;   /* dark teal, from palette */
 }
 
 hr {
     border: none;
-    border-top: 2px solid #ccc;
+    border-top: 2px solid #0B7A75;
     margin: 20px 0;
 }
 
@@ -35,7 +36,7 @@ img {
 
 /* ---------- Navigation / SlickNav (matches main-style.css) ---------- */
 nav {
-    background-color: #2c3e50;
+    background-color: #19535F;
     width: 100%;
 }
 
@@ -61,21 +62,21 @@ nav ul#menu li a {
 }
 
 nav ul#menu li a:hover {
-    background-color: #74c361;
+    background-color: #0B7A75;
 }
 
 .slicknav_menu {
-    background-color: #2c3e50;
+    background-color: #19535F;
     padding: 0;
 }
 
 .slicknav_btn {
-    background-color: #74c361;
+    background-color: #0B7A75;
     margin: 8px;
 }
 
 .slicknav_nav a:hover {
-    background-color: #74c361;
+    background-color: #0B7A75;
 }
 
 /* Two column layout for interests.html */
@@ -91,8 +92,8 @@ nav ul#menu li a:hover {
 }
 
 .column section {
-    background-color: #C9D9C5;
-    border: 1px solid #74c361;
+    background-color: #E4FBFF;
+    border: 1px solid #0B7A75;
     border-radius: 8px;
     padding: 15px 20px;
     margin-bottom: 20px;
@@ -100,7 +101,7 @@ nav ul#menu li a:hover {
 
 .column section h3 {
     margin-top: 0;
-    border-bottom: 2px solid #2c3e50;
+    border-bottom: 2px solid #19535F;
     padding-bottom: 6px;
 }
 
