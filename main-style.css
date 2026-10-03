@@ -1,12 +1,11 @@
 /* Rowan Taylor  CSS page
-Southern Illinois University  Developed: 9-13-2026  Tested: 9-13-2026
-Updated: added responsive/fluid layout + SlickNav mobile menu styling
+Southern Illinois University  Developed: 9-13-2026  Tested: 10-03-2026
 Lab 3 - Responsive Design
+Lab 4 update: rollover main graphic, plain image, audio/video styling,
+cleaned up duplicated rules and layout widths
 */
 
 /* ---------- Base / fluid container ---------- */
-/* Fluid instead of a fixed pixel width so the page never leaves
-   "unfilled" whitespace as the viewport shrinks or grows. */
 * {
     box-sizing: border-box;
 }
@@ -14,14 +13,42 @@ Lab 3 - Responsive Design
 body {
     width: 100%;
     max-width: 1100px;
+    margin: 0 auto;
     background-color: #E4FBFF;   /* pale cyan */
     color: #000000;
-    margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
 }
 
 h1, h2, h3 {
     color: #19535F;   /* dark teal */
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 10px 15px;
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+p {
+    padding: 0 15px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #0B7A75;
+    margin: 15px;
+}
+
+ul {
+    padding-left: 40px;
+}
+
+li {
+    padding-left: 5px;   /* space between the bullet and text */
 }
 
 /* ---------- Navigation / SlickNav ---------- */
@@ -41,7 +68,7 @@ nav ul#menu {
 }
 
 nav ul#menu li {
-    padding-left: 0; /* override the global li padding for the nav only */
+    padding-left: 0;
 }
 
 nav ul#menu li a {
@@ -56,8 +83,10 @@ nav ul#menu li a:hover {
     background-color: #0B7A75;
 }
 
-/* Re-color the generated SlickNav mobile menu to match the site theme */
+/* SlickNav mobile menu: hidden on desktop, shown on small screens
+   (the full menu / mobile menu swap happens in the 768px breakpoint) */
 .slicknav_menu {
+    display: none;
     background-color: #19535F;
     padding: 0;
 }
@@ -72,44 +101,95 @@ nav ul#menu li a:hover {
 }
 
 /* ---------- Two column layout (fluid, percentage based) ---------- */
-main {
-    width: calc(50% - 10px);
-    min-height: 300px;   /* was a fixed height:500px, which left empty
-                            gaps or clipped content as the layout resized */
+main,
+aside {
+    width: calc(50% - 16px);
+    min-height: 300px;
+    padding: 10px;
+    border: 1px solid #0B7A75;
     border-radius: 8px;
+}
+
+main {
     float: left;
     margin: 10px 5px 10px 10px;
-    padding: 10px;
 }
 
-h1, h2 {
-    padding: 10px;
+aside {
+    float: right;
+    margin: 10px 10px 10px 5px;
 }
 
-p {
-    padding-left: 5px;
-    padding-right: 5px;
+main h3,
+aside h3 {
+    margin-top: 0;
 }
+
+main p,
+aside p {
+    padding: 0;
+}
+
+main ul,
+aside ul {
+    padding-left: 25px;
+}
+
 footer {
     clear: both;
+    margin-top: 20px;
     padding: 10px;
     text-align: center;
-}
-ul {
-    padding-left: 10px;
-}
-li {
-    padding-left: 10px;  /* space between the bullet and text */
+    border-top: 2px solid #0B7A75;
 }
 
+/* ---------- Images ---------- */
 img {
     position: static;
     max-width: 100%;   /* images scale down fluidly instead of overflowing */
     height: auto;
 }
 
+/* Lab 4: main graphic (same on every page) - rollover + rounded corners.
+   The rollover swap itself is done with jQuery in each page. */
+img.rollover {
+    display: block;
+    width: 250px;
+    max-width: calc(100% - 30px);
+    height: auto;
+    margin: 15px;
+    border: 3px solid #0B7A75;
+    border-radius: 20px;
+}
 
-/* ---------- Contact form  ---------- */
+/* Lab 4: plain graphic on the occupation page - no rollover, no rounded corners */
+img.plain-img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    margin: 15px 0 0 0;
+    border: none;
+    border-radius: 0;
+}
+
+/* ---------- Audio / Video (Lab 4) ---------- */
+audio {
+    display: block;
+    width: calc(100% - 30px);
+    max-width: 400px;
+    margin: 10px 15px;
+}
+
+video {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    margin: 10px 0;
+    border: 2px solid #19535F;
+}
+
+/* ---------- Contact form ---------- */
 form {
     width: 100%;
 }
@@ -150,22 +230,27 @@ form button:hover {
     }
 
     h1, h2 {
-        padding: 8px;
+        padding: 8px 15px;
     }
 }
 
-/* 2. Large phones / small tablets */
+/* 2. Large phones / small tablets: stack columns, swap to SlickNav menu */
 @media (max-width: 768px) {
-    main, aside {
+    nav ul#menu {
+        display: none;
+    }
+
+    .slicknav_menu {
+        display: block;
+    }
+
+    main,
+    aside {
         width: calc(100% - 20px);
         float: none;
         min-height: 0;
         margin: 10px;
     }
-
-    nav ul#menu li a {
-        padding: 12px 14px;
-    }
 }
 
 /* 3. Phones */
@@ -176,15 +261,16 @@ form button:hover {
 
     h1 {
         font-size: 1.4em;
-        padding: 8px 5px;
+        padding: 8px 15px;
     }
 
     h2 {
         font-size: 1.1em;
-        padding: 5px;
+        padding: 5px 15px;
     }
 
-    main, aside {
+    main,
+    aside {
         padding: 8px;
     }
 }
@@ -199,222 +285,8 @@ form button:hover {
         font-size: 0.9em;
     }
 
-    main, aside {
-        padding: 5px;
-    }
-}
-/* Rowan Taylor  CSS page
-Southern Illinois University  Developed: 9-13-2026  Tested: 9-13-2026
-Updated: added responsive/fluid layout + SlickNav mobile menu styling
-Lab 3 - Responsive Design
-*/
-
-/* ---------- Base / fluid container ---------- */
-/* Fluid instead of a fixed pixel width so the page never leaves
-   "unfilled" whitespace as the viewport shrinks or grows. */
-* {
-    box-sizing: border-box;
-}
-
-body {
-    width: 100%;
-    max-width: 1100px;
-    background-color: #C9D9C5;   /* light green */
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-/* ---------- Navigation / SlickNav ---------- */
-nav {
-    background-color: #2c3e50;
-    width: 100%;
-}
-
-nav ul#menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-}
-
-nav ul#menu li {
-    padding-left: 0; /* override the global li padding for the nav only */
-}
-
-nav ul#menu li a {
-    display: block;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 15px 20px;
-    font-weight: bold;
-}
-
-nav ul#menu li a:hover {
-    background-color: #74c361;
-}
-
-/* Re-color the generated SlickNav mobile menu to match the site theme */
-.slicknav_menu {
-    background-color: #2c3e50;
-    padding: 0;
-}
-
-.slicknav_btn {
-    background-color: #74c361;
-    margin: 8px;
-}
-
-.slicknav_nav a:hover {
-    background-color: #74c361;
-}
-
-/* ---------- Two column layout (fluid, percentage based) ---------- */
-main {
-   width: 50%;
-   min-height: 300px;   /* was a fixed height:500px, which left empty
-                            gaps or clipped content as the layout resized */
-   background-color: #C9D9C5;   /* still green */
-   float: left;
-   padding: 10px;
-}
-
-aside {
-   width: 50%;
-   min-height: 300px;
-   background-color: white;
-   float: right;
-   padding: 10px;
-}
-
-h1, h2 {
-    padding: 10px;
-}
-
-p {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-footer {
-    clear: both;
-    padding: 10px;
-    text-align: center;
-}
-ul {
-    padding-left: 10px;
-}
-li {
-    padding-left: 10px;  /* space between the bullet and text */
-}
-
-img {
-    position: static;
-    max-width: 100%;   /* images scale down fluidly instead of overflowing */
-    height: auto;
-}
-
-.bluetouch img {
-    border: 2px solid #B5D3F7;  /* slightly brighter blue */
-    margin: 0;
-    padding: 0;
-    border-radius: 50px;
-    position: center;
-    right: 10px;
-    top: 10px;
-}
-
-/* ---------- Contact form (contact.html) ---------- */
-form {
-    width: 100%;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    max-width: 250px;
-    padding: 6px;
-    border: 1px solid #74c361;
-    border-radius: 4px;
-    font-family: inherit;
-}
-
-form button {
-    background-color: #74c361;
-    border: none;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #2c3e50;
-}
-
-/* ================= RESPONSIVE BREAKPOINTS ================= */
-/* Fluid/flexible layout only -- no CSS grid is used anywhere on
-   this page, as required by the assignment. */
-
-/* 1. Tablets / small laptops */
-@media (max-width: 1024px) {
-    body {
-        max-width: 95%;
-    }
-
-    h1, h2 {
-        padding: 8px;
-    }
-}
-
-/* 2. Large phones / small tablets: stack the two columns so neither
-      one is squeezed too narrow, and let height stay fluid. */
-@media (max-width: 768px) {
-    main, aside {
-        width: 100%;
-        float: none;
-        min-height: 0;
-    }
-
-    nav ul#menu li a {
-        padding: 12px 14px;
-    }
-}
-
-/* 3. Phones */
-@media (max-width: 480px) {
-    body {
-        max-width: 100%;
-    }
-
-    h1 {
-        font-size: 1.4em;
-        padding: 8px 5px;
-    }
-
-    h2 {
-        font-size: 1.1em;
-        padding: 5px;
-    }
-
-    main, aside {
-        padding: 8px;
-    }
-}
-
-/* 4. Small phones */
-@media (max-width: 320px) {
-    h1 {
-        font-size: 1.2em;
-    }
-
-    p, li {
-        font-size: 0.9em;
-    }
-
-    main, aside {
+    main,
+    aside {
         padding: 5px;
     }
 }
