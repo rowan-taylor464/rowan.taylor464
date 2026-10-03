@@ -7,15 +7,18 @@
         Course: ITEC 236 - Web Apps
         Assignment: Lab 3 - Responsive Design (Education Page)
         Date Developed: 9/26/2026
-        Date Tested: 9/26/2026
+        Date Tested: 10/03/2026
+        Lab 4 Update: Embedded video, rollover main image, and favicon added - 10/3/2026
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Education page for Rowan Taylor's personal portfolio.">
     <meta name="keywords" content="Rowan Taylor, personal portfolio, education, Southern Illinois University">
-    <link rel="stylesheet" href="main-style.css">
-    <!-- SlickNav mobile responsive menu CSS (https://computerwolf.github.io/SlickNav/) -->
+    <!-- Lab 4: shortcut icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- SlickNav CSS loads FIRST so main-style.css can override its colors -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
+    <link rel="stylesheet" href="main-style.css">
     <title>Rowan Taylor - Education</title>
 </head>
 <body>
@@ -43,11 +46,14 @@
     <!-- Horizontal rule -->
     <hr>
 
+    <!-- Lab 4: main graphic with rollover -->
+    <img class="rollover" src="profile.png" data-hover="profile-hover.png" alt="Rowan Taylor profile graphic">
+
     <!-- Main column: degree and coursework -->
     <main>
         <h3>Southern Illinois University Carbondale</h3>
-        <p><strong>B.S. in Information Technology, minor in Cybersecurity</strong><br>
-        Expected Graduation: May 2028</p>
+        <p><strong>B.S. in Information Technology and Cybersecurity (Double Major)</strong><br>
+        Expected Graduation: 2028</p>
 
         <p>Relevant Coursework:</p>
         <ul>
@@ -58,7 +64,7 @@
         </ul>
     </main>
 
-    <!-- Side column: honors and achievements -->
+    <!-- Side column: honors, achievements, and the Lab 4 video -->
     <aside>
         <h3>Achievements</h3>
         <ul>
@@ -66,15 +72,26 @@
             <li>SIU University Excellence Scholarship Recipient</li>
             <li>Member, SIU Security Dawgs</li>
         </ul>
+
+        <!-- Lab 4: embedded video (under 10 MB, stored in the video folder).
+             autoplay on page load (browsers only allow this when muted),
+             controls let the visitor replay it with sound. -->
+        <h3>Featured Video</h3>
+        <video id="educationVideo" controls autoplay muted playsinline preload="auto">
+            <source src="video/education.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </aside>
 
-    <!-- Inline element -->
-    <p>This page was created as part of <em>ITEC 236 - Web Apps</em>, Lab Exercise 3: Responsive Design.</p>
+    <footer>
+        <!-- Inline element -->
+        <p>This page was created as part of <em>ITEC 236 - Web Apps</em>, Lab Exercise 3: Responsive Design.</p>
 
-    <!-- Contact section -->
-    <h3>Contact</h3>
-    <p>Contact Name: Rowan Taylor</p>
-    <p>SIU Address: Bowyer Hall, 1355 Point Drive, Carbondale, IL 62901</p>
+        <!-- Contact section -->
+        <h3>Contact</h3>
+        <p>Contact Name: Rowan Taylor</p>
+        <p>SIU Address: Bowyer Hall, 1355 Point Drive, Carbondale, IL 62901</p>
+    </footer>
 
     <!-- jQuery is required by SlickNav -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -84,6 +101,16 @@
         $(function () {
             $('#menu').slicknav({
                 label: 'Menu'
+            });
+
+            // Rollover: swap the main graphic on hover (hover image is preloaded)
+            $('.rollover').each(function () {
+                var $img = $(this);
+                var normal = $img.attr('src');
+                var hover = $img.data('hover');
+                $('<img>').attr('src', hover);
+                $img.on('mouseenter', function () { $img.attr('src', hover); })
+                    .on('mouseleave', function () { $img.attr('src', normal); });
             });
         });
     </script>
