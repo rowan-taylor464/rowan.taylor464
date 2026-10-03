@@ -5,17 +5,20 @@
         Name: Rowan Taylor
         University: Southern Illinois University
         Course: ITEC 236 - Web Apps
-        Assignment: Lab 3 - Responsive Design (Contact Page)
+        Assignment: Lab 4
         Date Developed: 9/26/2026
-        Date Tested: 9/26/2026
+        Date Tested: 10/03/2026
+        Lab 4 Update: Rollover main image and favicon added - 10/3/2026
     -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact page for Rowan Taylor's personal portfolio.">
     <meta name="keywords" content="Rowan Taylor, personal portfolio, contact">
-    <link rel="stylesheet" href="main-style.css">
-    <!-- SlickNav mobile responsive menu CSS (https://computerwolf.github.io/SlickNav/) -->
+    <!-- Lab 4: shortcut icon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- SlickNav CSS loads FIRST so main-style.css can override its colors -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
+    <link rel="stylesheet" href="main-style.css">
     <title>Rowan Taylor - Contact</title>
 </head>
 <body>
@@ -43,11 +46,14 @@
     <!-- Horizontal rule -->
     <hr>
 
+    <!-- Lab 4: main graphic with rollover -->
+    <img class="rollover" src="profile.png" data-hover="profile-hover.png" alt="Rowan Taylor profile graphic">
+
     <!-- Main column: direct contact details -->
     <main>
         <h3>Contact Details</h3>
         <p>Contact Name: Rowan Taylor</p>
-        <p>Email: <a href="mailto:rowan.taylor@siu.edu">[rowan.taylor@siu.edu]</a></p>
+        <p>Email: <a href="mailto:rowan.taylor@siu.edu">rowan.taylor@siu.edu</a></p>
         <p>SIU Address: Bowyer Hall, 1355 Point Drive, Carbondale, IL 62901</p>
     </main>
 
@@ -69,8 +75,10 @@
         </form>
     </aside>
 
-    <!-- Inline element + name of course -->
-    <p>This page was created as part of <em>ITEC 236 - Web Apps</em>, Lab Exercise 3: Responsive Design.</p>
+    <footer>
+        <!-- Inline element + name of course -->
+        <p>This page was created as part of <em>ITEC 236 - Web Apps</em>, Lab Exercise 3: Responsive Design.</p>
+    </footer>
 
     <!-- jQuery is required by SlickNav -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -81,93 +89,15 @@
             $('#menu').slicknav({
                 label: 'Menu'
             });
-        });
-    </script>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--
-        Name: Rowan Taylor
-        University: Southern Illinois University
-        Course: ITEC 236 - Web Apps
-        Assignment: Lab 3 - Responsive Design (Contact Page)
-        Date Developed: 9/26/2026
-        Date Tested: 9/26/2026
-    -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact page for Rowan Taylor's personal portfolio.">
-    <meta name="keywords" content="Rowan Taylor, personal portfolio, contact">
-    <link rel="stylesheet" href="main-style.css">
-    <!-- SlickNav mobile responsive menu CSS (https://computerwolf.github.io/SlickNav/) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css">
-    <title>Rowan Taylor - Contact</title>
-</head>
-<body>
-
-    <!-- Site navigation menu: SlickNav collapses this into a mobile-friendly menu -->
-    <nav>
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="interests.html">Interests</a></li>
-            <li><a href="occupational.html">Experience</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Main heading / name -->
-    <h1>Rowan Taylor</h1>
-
-    <!-- Subheading description -->
-    <h2>Get In Touch</h2>
-
-    <!-- Inline element for intro -->
-    <p>Feel free to reach out using the information below or the form to the side.</p>
-
-    <!-- Horizontal rule -->
-    <hr>
-
-    <!-- Main column: direct contact details -->
-    <main>
-        <h3>Contact Details</h3>
-        <p>Contact Name: Rowan Taylor</p>
-        <p>Email: <a href="mailto:rowan.taylor@siu.edu">[rowan.taylor@siu.edu]</a></p>
-        <p>SIU Address: Bowyer Hall, 1355 Point Drive, Carbondale, IL 62901</p>
-    </main>
-
-    <!-- Side column: static demo contact form -->
-    <aside>
-        <h3>Send a Message</h3>
-        <p>This form is for display purposes only and is not currently connected to a mail server.</p>
-        <form>
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br><br>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
-
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="4" cols="20"></textarea><br><br>
-
-            <button type="button">Send</button>
-        </form>
-    </aside>
-
-    <!-- Inline element + name of course -->
-    <p>This page was created as part of <em>ITEC 236 - Web Apps</em>, Lab Exercise 3: Responsive Design.</p>
-
-    <!-- jQuery is required by SlickNav -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- SlickNav mobile responsive menu plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js"></script>
-    <script>
-        $(function () {
-            $('#menu').slicknav({
-                label: 'Menu'
+            // Rollover: swap the main graphic on hover (hover image is preloaded)
+            $('.rollover').each(function () {
+                var $img = $(this);
+                var normal = $img.attr('src');
+                var hover = $img.data('hover');
+                $('<img>').attr('src', hover);
+                $img.on('mouseenter', function () { $img.attr('src', hover); })
+                    .on('mouseleave', function () { $img.attr('src', normal); });
             });
         });
     </script>
